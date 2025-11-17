@@ -4,7 +4,6 @@ import UsersListComponent from "./UsersListComponent"
 import AddUserComponent from "./AddUserComponent"
 
 const UserContainerComponent = () => {
-    const [counter, setCounter] = useState(0);
     const [users, setUsers] = useState<Partial<UserType>[]>([])
 
     const [loading, setLoading] = useState(false)
@@ -12,7 +11,6 @@ const UserContainerComponent = () => {
 
     const addUser = (user: Partial<UserType>) => {
         setUsers((prev) => [{ ...user, id: prev.length + 1 }, ...prev])
-        setCounter((users) => users + 1);
     }
 
     const fetchData = async () => {
@@ -41,7 +39,7 @@ const UserContainerComponent = () => {
             <AddUserComponent onAddUser={addUser} />
             <div className="flex justify-between px-10 mt-10 mb-8">
                 <h1>Users</h1>
-                <h2>{counter} total</h2>
+                <h2>{users.length} total</h2>
             </div>
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
