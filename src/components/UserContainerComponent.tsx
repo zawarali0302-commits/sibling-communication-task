@@ -4,7 +4,7 @@ import UsersListComponent from "./UsersListComponent"
 import AddUserComponent from "./AddUserComponent"
 
 const UserContainerComponent = () => {
-    const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(data.length);
     const [users, setUsers] = useState<Partial<UserType>[]>([])
 
     const [loading, setLoading] = useState(false)
