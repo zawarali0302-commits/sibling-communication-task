@@ -12,7 +12,7 @@ const UserContainerComponent = () => {
 
     const addUser = (user: Partial<UserType>) => {
         setUsers((prev) => [{ ...user, id: prev.length + 1 }, ...prev])
-        setCounter((prev) => prev + 1);
+        setCounter((users) => users + 1);
     }
 
     const fetchData = async () => {
